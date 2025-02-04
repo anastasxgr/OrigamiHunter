@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100dvw;
+  height: 100vh;
+
+  overflow: hidden;
+  cursor: none;
+}
+
+.container {
+  width: 100dvw;
+  height: 100dvh;
+  position: absolute;
+}
+body::before {
+  content: "";
+  width: 100dvw;
+  height: 100vh;
+  position: absolute;
+  background: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.cursor {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: solid 2px #000;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.cursor::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor .linex {
+  width: 190px;
+  height: 2px;
+  position: absolute;
+  background-color: #000000;
+}
+
+.cursor .liney {
+  width: 2px;
+  height: 190px;
+  position: absolute;
+  background-color: #000000;
+}
+
+.bird {
+  position: absolute;
+  width:70px;
+  height: 70px;
+  background:url(../img/bird.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+
+}
+
+
+
+
+@keyframes moveAround {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(200px, 100px);
+    }
+    50% {
+      transform: translate(-100px, 200px);
+    }
+    75% {
+      transform: translate(300px, -150px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
