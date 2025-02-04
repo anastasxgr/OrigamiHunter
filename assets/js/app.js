@@ -1,14 +1,29 @@
+const sound = new Audio("../assets/mp3/shot.mp3");
+const cursor = document.querySelector(".cursor");
+const score = document.querySelector(".score span");
+
+let yourScore = 0;
 /**
  *  Custom targer cursor
  *      by anastasxgr
  */
 document.addEventListener("mousemove", function (event) {
-  const cursor = document.querySelector(".cursor");
   cursor.style.left = `${event.pageX}px`;
   cursor.style.top = `${event.pageY}px`;
 });
 
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+  cursor.classList.toggle("zoomed");
+});
 
+/**
+ *  when shoot play sound
+ */
+
+document.addEventListener("click", function () {
+  sound.play();
+});
 
 class Bird {
   constructor(id, config) {
@@ -76,6 +91,8 @@ class Bird {
 
   hitbird() {
     this.item.style.display = "none";
+    yourScore += 10;
+    score.textContent = yourScore;
   }
 
   addToContainer(container) {

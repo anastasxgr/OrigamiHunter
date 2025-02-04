@@ -25,24 +25,27 @@ body::before {
   position: absolute;
   background: url(../img/bg.jpg);
   background-repeat: no-repeat;
+  filter: grayscale(90%);
   background-size: cover;
-
+  filter: brightness(20%);
 }
 .cursor {
   width: 80px;
   height: 80px;
-  background-color: #fff;
+  z-index: 99;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   transform: translate(-50%, -50%);
-  border: solid 2px #000;
+  border: solid 2px #ffffff;
   pointer-events: none;
-  opacity: 0.7;
 }
 
+.zoomed {
+  transform: scale(1.5);
+}
 .cursor::before {
   content: "";
   width: 8px;
@@ -50,7 +53,7 @@ body::before {
   background-color: red;
   position: absolute;
   border-radius: 50%;
-  z-index: 9999;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -59,45 +62,58 @@ body::before {
 .cursor .linex {
   width: 190px;
   height: 2px;
+  z-index: -1;
   position: absolute;
-  background-color: #000000;
+  background-color: #ffffff;
 }
 
 .cursor .liney {
   width: 2px;
   height: 190px;
+  z-index: -1;
   position: absolute;
-  background-color: #000000;
+  background-color: #ffffff;
 }
 
 .bird {
   position: absolute;
-  width:70px;
-  height: 70px;
-  background:url(../img/bird.png);
+
+  background: url(../img/bird.png);
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 50%;
-
 }
 
-
-
-
+.scoreboard {
+  width: 300px;
+  height: 60px;
+  color: #fff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1rem;
+}
+.score{
+  font-size: 1.8rem;
+}
+.score span{
+  color:red;
+}
 @keyframes moveAround {
-    0% {
-      transform: translate(0, 0);
-    }
-    25% {
-      transform: translate(200px, 100px);
-    }
-    50% {
-      transform: translate(-100px, 200px);
-    }
-    75% {
-      transform: translate(300px, -150px);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
+  0% {
+    transform: translate(0, 0);
   }
+  25% {
+    transform: translate(200px, 100px);
+  }
+  50% {
+    transform: translate(-100px, 200px);
+  }
+  75% {
+    transform: translate(300px, -150px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
